@@ -1,6 +1,12 @@
 var c = document.getElementById("canvas");
 var ctx = c.getContext("2d");
 
+function lang( string ) {
+
+	return document.webL10n.get( string );
+
+}
+
 var wheel = {
 	"t": 0,
 	"x": NaN,
@@ -65,11 +71,11 @@ function draw() {
 	ctx.fillStyle="#e8e7ea";
 	ctx.fillRect(0,0,c.width,c.height)
 
-	ctx.font = '18pt Calibri';
+	ctx.font = '36pt Calibri';
     ctx.textAlign = 'right';
     ctx.fillStyle = '#19478a';
-	ctx.fillText("high score: " + wheel.highscore, c.width-25, 40);
-	ctx.fillText("score: " + wheel.score, c.width-25, 40+30*1);
+	ctx.fillText( lang("highscore") + ": " + wheel.highscore, c.width-25, 60);
+	ctx.fillText( lang("score") + ": " + wheel.score, c.width-25, 60+60*1);
 
 	ctx.beginPath();
 	ctx.arc(wheel.x, wheel.y, 100, 100, Math.PI*2, true); 
@@ -97,12 +103,27 @@ function draw() {
 		ctx.fill();
 	}
 
+	var firstPin = true;
+
 	for (var pin = 0; pin <= wheel.pins; pin++) {
 		var x = wheel.x + wheel.r + 200 + pin*175;
 		var y = wheel.y;
 
 		ctx.beginPath();
-		ctx.arc(x, y, 25, 25, Math.PI*2, true); 
+
+		if (firstPin) {
+
+			ctx.arc(x, y, 25, 25, Math.PI*2, true);
+
+			firstPin = false;
+
+		} else {
+
+			ctx.arc(x, y, 45, 45, Math.PI*2, true); 
+
+		}
+
+		
 		ctx.closePath();
 		ctx.fillStyle="#19478a";
 		ctx.fill();
@@ -161,7 +182,7 @@ function draw() {
 		ctx.font = '48pt Calibri';
         ctx.textAlign = 'center';
         ctx.fillStyle = 'red';
-		ctx.fillText("Fail!", c.width/2, 48*2);
+		ctx.fillText( lang("fail") + "!", c.width/2, 48*2);
 		return;
 	}
 
@@ -170,7 +191,7 @@ function draw() {
         ctx.textAlign = 'center';
         ctx.fillStyle = 'green';
 		wheel.level++;
-		ctx.fillText("Level " + wheel.level + "!", c.width/2, 48*2);
+		ctx.fillText( lang("level") + " " + wheel.level + "!", c.width/2, 48*2);
 	}
 
 	ctx.font = '48pt Calibri';

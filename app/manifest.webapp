@@ -1,0 +1,29 @@
+{
+  "name": "aa",
+  "description": "Shoot all the pins into the spinning circle... without hitting another pin!",
+  "version": "1.0",
+  "launch_path": "/index.html",
+  "fullscreen": true,
+  "icons": {
+    "512": "/images/512.png",
+    "256": "/images/256.png",
+    "128": "/images/128.png",
+    "90": "/images/90.png",
+    "64": "/images/64.png",
+    "60": "/images/60.png",
+    "48": "/images/48.png",
+    "32": "/images/32.png",
+    "16": "/images/16.png"
+  },
+  "developer": {
+    "name": "Samuel Moraes",
+    "url": "http://samuelmoraes.com"
+  },
+  "orientation": "landscape",
+  "locales": {
+    "pt": {
+      "description": "Jogue todos os pinos no círculo giratório... sem bater em outro pino!"
+    }
+  },
+  "default_locale": "en"
+}
