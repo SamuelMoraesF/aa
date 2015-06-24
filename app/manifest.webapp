@@ -3,7 +3,7 @@
   "description": "Shoot all the pins into the spinning circle... without hitting another pin!",
   "version": "1.0",
   "launch_path": "/index.html",
-  "fullscreen": true,
+  "fullscreen": "true",
   "icons": {
     "512": "/images/512.png",
     "256": "/images/256.png",
